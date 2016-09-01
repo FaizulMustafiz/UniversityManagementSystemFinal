@@ -1,0 +1,70 @@
+﻿@model IEnumerable<UniversityManagementSystemFinal.Models.Student>
+
+@{
+    ViewBag.Title = "Student View";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RegistrationId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DepartmentCode)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegistrationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.DepartmentCode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+            </td>
+        </tr>
+    }
+
+</table>

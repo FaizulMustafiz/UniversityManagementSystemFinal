@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b32dfaf5e6304883bd314cf5e4539b37" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversityDBFinalModel.AssignCourse" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Course" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Day" Width="1.5" PointX="6" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Department" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Designation" Width="1.5" PointX="9" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.EnrollCourse" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Grade" Width="1.5" PointX="9" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.ResultEntry" Width="1.5" PointX="11.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Room" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.RoomAllocation" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Semester" Width="1.5" PointX="3.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Student" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversityDBFinalModel.Teacher" Width="1.5" PointX="11.25" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_AssignCourse_AssignCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_AssignCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_AssignCourse_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_Course_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_Course_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_EnrollCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_ResultEntry_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_RoomAllocation_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_RoomAllocation_Day" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_RoomAllocation_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_Student_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_Teacher_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_Teacher_Designation" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_EnrollCourse_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_ResultEntry_Grade" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_ResultEntry_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.FK_RoomAllocation_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="UniversityDBFinalModel.TeacherCourse" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

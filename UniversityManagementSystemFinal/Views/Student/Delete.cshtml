@@ -1,0 +1,80 @@
+﻿@model UniversityManagementSystemFinal.Models.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DepartmentCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentCode)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

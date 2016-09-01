@@ -1,0 +1,88 @@
+﻿@model UniversityManagementSystemFinal.Models.Course
+
+@{
+    ViewBag.Title = "Add New Course";
+}
+
+<h2>Add New Course</h2>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Course</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <p style="color: red">@ViewBag.Message</p>
+            <h2 style="color: green">@TempData["Message"]</h2>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseCode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CourseCode)
+                @Html.ValidationMessageFor(model => model.CourseCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CourseName)
+                @Html.ValidationMessageFor(model => model.CourseName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseCradit, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CourseCradit)
+                @Html.ValidationMessageFor(model => model.CourseCradit)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseDescription, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CourseDescription)
+                @Html.ValidationMessageFor(model => model.CourseDescription)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SemesterId, "Semester No", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SemesterId", "--Select Semester--")
+                @Html.ValidationMessageFor(model => model.SemesterId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentId, "Department", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DepartmentId", "--Select Department--")
+                @Html.ValidationMessageFor(model => model.DepartmentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

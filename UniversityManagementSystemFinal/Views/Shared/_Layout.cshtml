@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Leicester City University</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="color: darkblue">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Leicester City University", "Index", "Home", null, new { @class = "navbar-brand" })*@
+                <p>
+                    <a href="@Url.Action("Index", "Home")"><img src="~/Image/logo.png" height="60" width="180" /></a>
+                </p>
+                
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Department<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Departments", "Create", "Department")</li>
+                            <li>@Html.ActionLink("View Department", "Index", "Department")</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Course<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Course", "Create", "Course")</li>
+                            <li>@Html.ActionLink("View Course", "Index", "Course")</li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teacher<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Teacher", "Create", "Teacher")</li>
+                            <li>@Html.ActionLink("View Teacher", "Index", "Teacher")</li>
+                            @*  <li>@Html.ActionLink("Teacher", "Index", "Teacher")</li>*@
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assign Course<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Assign Course", "Create", "AssignCourse")</li>
+                            <li>@Html.ActionLink("View Course Status", "ViewCourseStatus", "AssignCourse")</li>
+                            <li>@Html.ActionLink("Unassign Courses", "UnassignCourses", "Course")</li>
+                            @*           <li>@Html.ActionLink("Coursse Enrollment", "Index", "AssignCourse")</li>*@
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Student", "Create", "Student")</li>
+                            <li>@Html.ActionLink("View Student", "Index", "Student")</li>
+                            @*<li>li>@Html.ActionLink("Student", "Index", "Student")</li></li>*@
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class Room<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Allocate Room", "Create", "RoomAllocation")</li>
+                            <li>@Html.ActionLink("Room States", "RoomAllocationView", "RoomAllocation")</li>
+                            <li>@Html.ActionLink("Unallocate Rooms", "UnallocateRoom", "RoomAllocation")</li>
+                            @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enroll Course<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Add Course", "Create", "EnrollCourse")</li>
+                            <li>@Html.ActionLink("View Status", "Index", "EnrollCourse")</li>
+                            @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Result<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Result Enrty", "Create", "ResultEntry")</li>
+                            <li>@Html.ActionLink("View Result", "ViewResult", "ResultEntry")</li>
+                            @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
+                        </ul>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Leicester City University</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

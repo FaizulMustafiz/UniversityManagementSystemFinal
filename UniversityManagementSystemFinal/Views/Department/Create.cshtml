@@ -1,0 +1,59 @@
+﻿@model UniversityManagementSystemFinal.Models.Department
+
+@{
+    ViewBag.Title = "Add Department";
+}
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+
+<h2>Add New Department</h2>
+
+<h3 style="color: forestgreen">@TempData["Success"]</h3>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Department</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        
+        <div class="form-group">
+            <p>@ViewBag.Message</p>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentCode, "Department Code",new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartmentCode)
+                @Html.ValidationMessageFor(model => model.DepartmentCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmnetName, "Departpent Name",new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartmnetName)
+                @Html.ValidationMessageFor(model => model.DepartmnetName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

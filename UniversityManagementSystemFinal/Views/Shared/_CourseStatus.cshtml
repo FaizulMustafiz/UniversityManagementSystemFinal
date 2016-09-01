@@ -1,0 +1,39 @@
+﻿@using System.Activities.Expressions
+@model IEnumerable<UniversityManagementSystemFinal.Models.Course>
+           
+@if (Model != null)
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Semester</th>
+            <th>Assign To</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.CourseCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.CourseName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Semester.SemesterName)</td>
+                <td>
+                    @if (item.AssignTo != null)
+                    {
+                        @Html.DisplayFor(modelItem => item.AssignTo)
+                    }
+                    @if (item.AssignTo == null)
+                    {
+                        item.AssignTo = "Not Assigned";
+                        @Html.DisplayFor(modleItem => item.AssignTo)
+                    }
+                </td>
+
+            </tr>
+        }
+    </table>
+
+
+    <div style="color: darkgoldenrod"><h3>@ViewBag.NotAssigned</h3></div>
+}
+   

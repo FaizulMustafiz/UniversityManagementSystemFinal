@@ -1,0 +1,88 @@
+﻿@model UniversityManagementSystemFinal.Models.Teacher
+
+@{
+    ViewBag.Title = "Add Teacher";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Teacher</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        
+        <div class="form-group">
+            <p style="color: red">@ViewBag.Message</p>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeacherName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TeacherName)
+                @Html.ValidationMessageFor(model => model.TeacherName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeacherAddress, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TeacherAddress)
+                @Html.ValidationMessageFor(model => model.TeacherAddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeacherEmail, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TeacherEmail)
+                @Html.ValidationMessageFor(model => model.TeacherEmail)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeacherContact, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TeacherContact)
+                @Html.ValidationMessageFor(model => model.TeacherContact)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesignationId, "Designation", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DesignationId", "--Select Designation--")
+                @Html.ValidationMessageFor(model => model.DesignationId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CraditTaken, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CraditTaken)
+                @Html.ValidationMessageFor(model => model.CraditTaken)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartmentId, "Department", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DepartmentId", "--Select Department--")
+                @Html.ValidationMessageFor(model => model.DepartmentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

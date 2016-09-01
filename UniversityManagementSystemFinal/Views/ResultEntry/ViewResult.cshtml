@@ -1,0 +1,59 @@
+﻿@model IEnumerable<UniversityManagementSystemFinal.Models.ResultEntry>
+
+@{
+    ViewBag.Title = "View Result";
+}
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-2.1.3.js"></script>
+<script src="~/Scripts/jspdf.js"></script>
+<script src="~/Scripts/pdfFromHTML.js"></script>
+
+<h2>View Student Result</h2>
+<div id="pdf2htmldiv">
+    @using (Html.BeginForm())
+    {
+        <div>
+            <b>Select Student</b>
+            @Html.DropDownList("StudentId", "--Select Registration No--")
+        </div>
+
+    }
+    <br/>
+    <br/>
+    <div id="studentInfo">
+        @Html.Partial("~/Views/shared/_studentInformation.cshtml")
+    </div>
+
+
+    <p><br /></p>
+
+    <div id="result_Data">
+        @Html.Partial("~/Views/shared/_ResultInformation.cshtml")
+    </div>
+    
+    <div>
+        <input value="Generate PDF" onclick="javascript: pdfToHTML();" type="submit" class="btn btn-success"/>
+        @*<a href="javascript: pdfToHTML()">Generate PDF</a>*@
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    function FillData(id) {
+        $('#studentInfo').load('@Url.Action("StudentInfoLoad")', { studentId: id });
+        $('#result_Data').load('@Url.Action("ResultInfoLoad")', { studentId: id });
+    }
+
+    $(function () {
+        $('#StudentId').change(function () {
+            var id = $('#StudentId').val();
+            FillData(id);
+        });
+    });
+
+</script>

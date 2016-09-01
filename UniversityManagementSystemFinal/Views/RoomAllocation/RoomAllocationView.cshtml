@@ -1,0 +1,42 @@
+﻿@model IEnumerable<UniversityManagementSystemFinal.Models.Course>
+
+@{
+    ViewBag.Title = "Room Allocation View";
+}
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<h2>View Room Allocation</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <b>Select Department</b>
+        @Html.DropDownList("DepartmentId", "--Select Department--")
+    </div>
+}
+<p><br /></p>
+<div id="room-data">
+    @Html.Partial("~/Views/shared/_RoomAllocationView.cshtml", Model)
+</div>
+
+
+<script type="text/javascript">
+    function FillData(id) {
+        $('#room-data').load('@Url.Action("AllocatedRoomLoad")', { departmentId: id });
+    }
+
+    $(function () {
+        $('#DepartmentId').change(function () {
+            var id = $('#DepartmentId').val();
+            FillData(id);
+        });
+    });
+
+</script>
+
+
+
+

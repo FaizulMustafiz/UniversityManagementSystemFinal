@@ -1,0 +1,136 @@
+﻿@using UniversityManagementSystemFinal.Controllers
+@model UniversityManagementSystemFinal.Models.AssignCourse
+
+@{
+    ViewBag.Title = "Assign Course";
+}
+
+<h2>Course Assign to Teacher</h2>
+<h3 style="color:forestgreen">@TempData["success"]</h3>
+<h3 style="color: red">@TempData["Already"]</h3>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <fieldset>
+
+        @*<table>
+                <tr>
+                    <td>@Html.LabelFor(model => model.DepartmentId, "Department")&nbsp;</td>
+                    <td>@Html.DropDownList("DepartmentId", String.Empty)</td>
+                    <td>@Html.ValidationMessageFor(model => model.DepartmentId)</td>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.TeacherId, "Teacher")</td>
+                    <td>@Html.Partial("_FillteredTeacher")</td>
+                    <td>@Html.ValidationMessageFor(model => model.TeacherId)</td>
+                </tr>
+                <tr>
+                    <div id="teacherInfo">
+                        @Html.Partial("~/Views/Shared/_TeachersCreditInfo.cshtml")
+                    </div>
+                </tr>
+                <tr>
+                    <td>@Html.LabelFor(model => model.CourseId, "Course")</td>
+                    <td>@Html.Partial("_FilteredCourse")</td>
+                    <td>@Html.ValidationMessageFor(model => model.CourseId)</td>
+                </tr>
+                <tr>
+                    <div id="courseInfo">
+                        @Html.Partial("~/Views/Shared/_CourseInfo.cshtml")
+                    </div>
+                </tr>
+            </table>*@
+
+
+        <div class="editor-lable">
+            @Html.LabelFor(model => model.DepartmentId, "Department")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DepartmentId", "--Select Department--")
+            @Html.ValidationMessageFor(model => model.DepartmentId)
+        </div>
+
+        <div class="edito-lable">
+            @Html.LabelFor(model => model.TeacherId, "Teacher")
+            <div class="editor-field">
+                @Html.Partial("_FillteredTeacher")
+                @Html.ValidationMessageFor(model => model.TeacherId)
+            </div>
+        </div>
+        <br />
+        <div id="teacherInfo">
+            @Html.Partial("~/Views/Shared/_TeachersCreditInfo.cshtml")
+        </div>
+
+        <div class="editor-lable">
+            @Html.LabelFor(model => model.CourseId, "Course")
+            <div class="editor-field">
+                @Html.Partial("_FilteredCourse")
+                @Html.ValidationMessageFor(model => model.CourseId)
+            </div>
+        </div>
+        <br />
+        <div id="courseInfo">
+            @Html.Partial("~/Views/Shared/_CourseInfo.cshtml")
+        </div>
+        
+        <p><br />
+            <input type="submit" value="Assign" class="btn btn-primary" />
+        </p>
+
+
+    </fieldset>
+}
+
+<script type="text/javascript">
+    function FillData(id) {
+
+        $('#TeacherId').load('@Url.Action("LoadTeacher")', { departmentId: id });
+        $('#CourseId').load('@Url.Action("LoadCourse")', { departmentId: id });
+
+    }
+    function FillTeacherInfo(id) {
+
+        $('#teacherInfo').load('@Url.Action("TeacherInfoLoad")', { teacherId: id });
+
+    }
+    function FillCourseInfo(id) {
+
+        $('#courseInfo').load('@Url.Action("CourseInfoLoad")', { courseId: id });
+
+    }
+
+    $(function () {
+        $('#DepartmentId').change(function () {
+            var id = $('#DepartmentId').val();
+            FillData(id);
+        });
+        $('#TeacherId').change(function () {
+            var id = $('#TeacherId').val();
+            FillTeacherInfo(id);
+        });
+        $('#CourseId').change(function () {
+            var id = $('#CourseId').val();
+            FillCourseInfo(id);
+        });
+    });
+</script>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

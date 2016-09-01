@@ -1,0 +1,37 @@
+﻿@model IEnumerable<UniversityManagementSystemFinal.Models.Course>
+@{
+    ViewBag.Title = "View Course Status";
+}
+
+<h2>ViewCourseStatus</h2>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <b>Select Department  </b>
+        @Html.DropDownList("DepartmentId", "--Select Department--")
+    </div>
+}
+<p><br /></p>
+<div id="resultData">
+    @Html.Partial("~/Views/Shared/_coursestatus.cshtml")
+</div>
+<script type="text/javascript">
+    function FillData(id) {
+        $('#resultData').load('@Url.Action("CourseStatusLoad")', { departmentId: id });
+    }
+
+    $(function () {
+        $('#DepartmentId').change(function () {
+            var id = $('#DepartmentId').val();
+            FillData(id);
+        });
+    });
+
+</script>
